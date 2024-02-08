@@ -121,3 +121,13 @@ def get_all_books():
 
     return books_data
 #get_all_books()
+
+
+def get_book_category():
+
+    response = requests.get("http://books.toscrape.com/index.html")
+    soup = BeautifulSoup(response.content, 'html.parser')
+    links = soup.find_all('a', href=True)
+    print(links)
+
+get_book_category()
